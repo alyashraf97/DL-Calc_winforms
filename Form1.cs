@@ -8,32 +8,32 @@ namespace DL_Calc
         public double fileSize; // Filesize variable
         public double speed;
 
-        /*
+        // /*
 
         public double fileSizeMultiplier =1;
         public string sizeUnitChoice;
         public Dictionary<string, double> sizeChoices = new Dictionary<string, double>
         {
-            {"GB", Convert.ToDouble( Math.Pow(2, 30)) },
-            {"MB", Convert.ToDouble( Math.Pow(2, 20)) },
-            {"KB", Convert.ToDouble( Math.Pow(2, 10)) },
+            {"GB",  Math.Pow(2, 30) },
+            {"MB",  Math.Pow(2, 20) },
+            {"KB",  Math.Pow(2, 10) },
             {"B", 1 },
         };
 
+        // Convert.ToDouble( //
 
-
-         // Download Speed
+        // Download Speed
         public double speedMultiplier =1;
         public string speedUnitChoice;
 
         public Dictionary<string, double> speedChoices= new Dictionary<string, double>
         {
-            {"Gbps", Convert.ToDouble( Math.Pow(10, 9))},
-            {"Mbps", Convert.ToDouble( Math.Pow(10, 6))},
-            {"Kbps", Convert.ToDouble( Math.Pow(10, 3))},
+            {"Gbps", Math.Pow(10, 9)},
+            {"Mbps", Math.Pow(10, 6)},
+            {"Kbps", Math.Pow(10, 3)},
             {"bps", 1 },
         };
-        */
+        // */
 
         public double time; // Download time
         public double hr;
@@ -93,6 +93,8 @@ namespace DL_Calc
             fileSize = Convert.ToDouble(textBox1.Text);  // get the filesize
             speed = Convert.ToDouble(textBox2.Text);     // get the download speed
 
+            /*
+
             if (comboBox1.Text == "GB" & comboBox2.Text=="Gbps" 
                 | comboBox1.Text == "MB" & comboBox2.Text == "Mbps" 
                 | comboBox1.Text == "KB" & comboBox2.Text == "Kbps")
@@ -119,8 +121,9 @@ namespace DL_Calc
             {
                 time = (fileSize * 8) / (speed * 1024 * 1024);
             }
+            */
 
-            /*
+            // /*
             sizeUnitChoice = comboBox1.Text;
             speedUnitChoice = comboBox2.Text;
 
@@ -128,9 +131,10 @@ namespace DL_Calc
             Console.WriteLine(fileSizeMultiplier);
             speedMultiplier = speedChoices[speedUnitChoice];
             Console.WriteLine(speedMultiplier);
-            */
 
+            // */
 
+            time = (fileSize * 8 * fileSizeMultiplier) / (speed * speedMultiplier);
 
 
             Console.WriteLine(time);
